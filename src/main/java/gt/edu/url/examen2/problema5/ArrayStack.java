@@ -33,6 +33,10 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     @Override
+    /**
+     * @param e the element to push to the array 
+     * I use resize element to make a bigger array and later just add the new e element 
+     */
     public void push(E e) {
         
         if(size==data.length)
@@ -65,8 +69,14 @@ public class ArrayStack<E> implements Stack<E> {
 		size--;
 		return response;
     }
+    /**
+     * 
+     * @param capacity the double of the actual capacity 
+     * it create a new array with the new capacity and assign the old array to the new array 
+     * 
+     */
     protected void resize(int capacity) {
-		E[] temp = (E[]) new Object[capacity];
+		E[] temp = (E[]) new Object[capacity]; 
 		for (int k=0; k < size; k++)
 			temp[k] = data[k];
 		data = temp;
